@@ -3,6 +3,10 @@ radio.onReceivedString(function (receivedString) {
 })
 let w = ""
 radio.setGroup(1)
+RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
+let strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
+strip.showColor(neopixel.colors(NeoPixelColors.Red))
+strip.show()
 basic.forever(function () {
     if (w.compare("F") == 0) {
         RingbitCar.forward()
