@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "RingbitCar": "github:tinkertanker/pxt-ringbitcar#v3.1.4"
+        "RingbitCar": "github:tinkertanker/pxt-ringbitcar#v3.1.4",
+        "servo": "*"
     },
     "files": [
         "main.blocks",

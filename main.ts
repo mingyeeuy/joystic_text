@@ -2,11 +2,9 @@ radio.onReceivedString(function (receivedString) {
     w = receivedString
 })
 let w = ""
-radio.setGroup(1)
-RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
-let strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
-strip.showColor(neopixel.colors(NeoPixelColors.Red))
-strip.show()
+radio.setGroup(209)
+RingbitCar.init_wheel(AnalogPin.P0, AnalogPin.P1)
+servos.P2.setRange(0, 180)
 basic.forever(function () {
     if (w.compare("F") == 0) {
         RingbitCar.forward()
@@ -16,7 +14,16 @@ basic.forever(function () {
         RingbitCar.turnleft()
     } else if (w.compare("R") == 0) {
         RingbitCar.turnright()
+    } else if (w.compare("A") == 0) {
+        servos.P2.setAngle(44)
+    } else if (w.compare("D") == 0) {
+        servos.P2.setAngle(135)
     } else {
         RingbitCar.brake()
+    }
+})
+control.inBackground(function () {
+    while (true) {
+        basic.showNumber(209)
     }
 })
